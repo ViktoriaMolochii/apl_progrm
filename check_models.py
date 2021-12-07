@@ -1,5 +1,5 @@
 
-from models import Session, User, Custom, Production, StatusCustom,StatusProduction
+from models import Session, User, Custom, Production, StatusCustom
 
 session = Session()
 
@@ -11,15 +11,13 @@ user2 = User(Id=2, userName='katya', firstName='Kateryna', lastName='Ivanova', e
 stasusOrder1 = StatusCustom(statusCustom=1, name='delivered')
 stasusOrder2 = StatusCustom(statusCustom=2, name='placed')
 
-stasusProduct1 = StatusProduction(statusProduct=1, name='available')
-stasusProduct2 = StatusProduction(statusProduct=2, name='sold')
 
 
-product1 = Production(id=1, name="phone", number=1, statusProductid=1)
-product2 = Production(id=2, name="pen", number=3, statusProductid=2)
+product1 = Production(id=1, name="phone", number=1)
+product2 = Production(id=2, name="pen", number=3)
 
-custom1 = Custom(id=1, shipDate='2021-12-10', packed=True, statusCustomid=1, userid=1, productionid=2)
-custom2 = Custom(id=2, shipDate='2021-11-29', packed=False,  statusCustomid=2, userid=2, productionid=1)
+custom1 = Custom(id=1, shipDate='2021-12-10', statusCustomid=1, userid=1, productionid=2)
+custom2 = Custom(id=2, shipDate='2021-11-29', statusCustomid=2, userid=2, productionid=1)
 
 
 
@@ -31,8 +29,6 @@ session.add(user2)
 session.add(stasusOrder1)
 session.add(stasusOrder2)
 
-session.add(stasusProduct1)
-session.add(stasusProduct2)
 session.commit()
 
 
@@ -49,6 +45,5 @@ print(session.query(User).all()[0])
 print(session.query(Custom).all()[1])
 print(session.query(Production).all())
 print(session.query(StatusCustom).all())
-print(session.query(StatusProduction).all())
 
 session.close()
