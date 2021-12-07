@@ -34,13 +34,14 @@ class User(Base):
     firstName = Column(String(20), nullable=False)
     lastName = Column(String(25), nullable=False)
     email = Column(String(50), nullable=False, unique=True)
+    login = Column(String(length=45), nullable=False, unique=True)
     password = Column(String(100), nullable=False )
     phone = Column(String(10), unique=True)
     userStatus = Column(Integer, nullable=False)
 
     def __repr__(self):
-        return "<User('%sb','%s','%s','%s','%s','%s','%s','%s',)>" % (self.Id, self.userStatus, self.userName,
-                                                                     self.firstName, self.lastName, self.email,
+        return "<User('%sb','%s','%s','%s','%s','%s','%s','%s','%s')>" % (self.Id, self.userStatus, self.userName,
+                                                                     self.firstName, self.lastName, self.email,self.login,
                                                                      self.password, self.phone)
 
     def __str__(self):
@@ -50,6 +51,7 @@ class User(Base):
                f"firstName: {self.firstName}\n" \
                f"lastName: {self.lastName}\n" \
                f"email: {self.email}\n" \
+               f"login: {self.login}\n" \
                f"password: {self.password}\n" \
                f"phone: {self.phone}\n"
 
