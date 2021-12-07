@@ -3,10 +3,10 @@ from models import Session, User, Custom, Production, StatusCustom
 
 session = Session()
 
-user1 = User(Id=1, userName='vika', firstName='Viktoriia', lastName='Molochii', email='vika2999@gmail.com',
-            password='12kjk345', phone='0682608928', userStatus=False)
-user2 = User(Id=2, userName='katya', firstName='Kateryna', lastName='Ivanova', email='me12post@gmail.com',
-            password='fef3434', phone='0681539818', userStatus=False)
+user1 = User(Id=1, userName='vika', firstName='Viktoriia', lastName='Molochii', email='vika2999@gmail.com', login='viki56',
+            password='12345', phone='0682608928', userStatus=False)
+user2 = User(Id=2, userName='katya', firstName='Kateryna', lastName='Ivanova', email='me12post@gmail.com',login='katy65katy',
+            password='f3434', phone='0681539818', userStatus=False)
 
 stasusOrder1 = StatusCustom(statusCustom=1, name='delivered')
 stasusOrder2 = StatusCustom(statusCustom=2, name='placed')
